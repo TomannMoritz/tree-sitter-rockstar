@@ -1,3 +1,6 @@
+# Custom rock files
+*.rock
+
 # Rust artifacts
 target/
 

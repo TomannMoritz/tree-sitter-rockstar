@@ -1,12 +1,223 @@
 [
   {
-    "type": "source_file",
+    "type": "chord_info",
     "named": true,
-    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "chord_info",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "chord_meta",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "chord_meta",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "line_comment",
+    "named": true,
     "fields": {}
   },
   {
-    "type": "hello",
+    "type": "print_function",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "chord_info",
+          "named": true
+        },
+        {
+          "type": "chord_meta",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "line_comment",
+          "named": true
+        },
+        {
+          "type": "print_function",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "PRINT",
+    "named": false
+  },
+  {
+    "type": "Print",
+    "named": false
+  },
+  {
+    "type": "SAY",
+    "named": false
+  },
+  {
+    "type": "SCREAM",
+    "named": false
+  },
+  {
+    "type": "SHOUT",
+    "named": false
+  },
+  {
+    "type": "Say",
+    "named": false
+  },
+  {
+    "type": "Scream",
+    "named": false
+  },
+  {
+    "type": "Shout",
+    "named": false
+  },
+  {
+    "type": "WHISPER",
+    "named": false
+  },
+  {
+    "type": "WRITE",
+    "named": false
+  },
+  {
+    "type": "Whisper",
+    "named": false
+  },
+  {
+    "type": "Write",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "print",
+    "named": false
+  },
+  {
+    "type": "say",
+    "named": false
+  },
+  {
+    "type": "scream",
+    "named": false
+  },
+  {
+    "type": "shout",
+    "named": false
+  },
+  {
+    "type": "whisper",
+    "named": false
+  },
+  {
+    "type": "write",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
     "named": false
   }
 ]

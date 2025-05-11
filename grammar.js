@@ -8,10 +8,80 @@
 // @ts-check
 
 module.exports = grammar({
-  name: "rockstar",
+    name: "rockstar",
 
-  rules: {
-    // TODO: add the actual grammar rules
-    source_file: $ => "hello"
-  }
+    rules: {
+        source_file: $ => repeat(choice($._input_output, $._comment_types)),
+
+
+        // --------------------------------------------------
+        // Comments
+        _comment_types: $ => choice($.comment, $.line_comment, $.chord_meta, $.chord_info),
+
+        _sub_comment: $ => /[^()]+/,
+        comment: $ => seq(
+            "(",
+            repeat(choice($._sub_comment, $.comment)),
+            ")",
+        ),
+
+        line_comment: $ => seq(
+            "#",
+            $._anything,
+            $._new_line
+        ),
+
+        // ChordPro Comments
+        _sub_chord_meta: $ => /[^{}]+/,
+        chord_meta: $ => seq(
+            "{",
+            repeat(choice($._sub_chord_meta, $.chord_meta)),
+            "}"
+        ),
+
+        _sub_chord_info: $ => /[\[\]]+/,
+        chord_info: $ => seq(
+            "[",
+            repeat(choice($._sub_chord_info, $.chord_info)),
+            "]",
+        ),
+
+
+        // --------------------------------------------------
+        // Input/Output functions
+        _input_output: $ => choice($.print_function),
+        // TODO: Input
+
+        print_function: $ => seq(
+            choice(
+                "print", "scream", "shout", "whisper", "say", "write",
+                "Print", "Scream", "Shout", "Whisper", "Say", "Write",
+                "PRINT", "SCREAM", "SHOUT", "WHISPER", "SAY", "WRITE"
+            ),
+            $.expression,
+        ),
+
+
+        // --------------------------------------------------
+        // Expressions
+        expression: $ => $._type,
+
+
+        // --------------------------------------------------
+        // Datatypes
+        _type: $ => choice($.string),
+
+        _sub_string: $ => /[^"]+/,
+        string: $ => seq(
+            '"',
+            repeat(choice($._sub_string)),
+            '"',
+        ),
+
+
+        // --------------------------------------------------
+        // Special case
+        _anything: $ => /[^ \t\n\r]/,
+        _new_line: $ => /\n/,
+    }
 });

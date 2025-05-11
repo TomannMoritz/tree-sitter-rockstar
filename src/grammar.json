@@ -3,8 +3,302 @@
   "name": "rockstar",
   "rules": {
     "source_file": {
-      "type": "STRING",
-      "value": "hello"
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_input_output"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_comment_types"
+          }
+        ]
+      }
+    },
+    "_comment_types": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "chord_meta"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "chord_info"
+        }
+      ]
+    },
+    "_sub_comment": {
+      "type": "PATTERN",
+      "value": "[^()]+"
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_sub_comment"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "comment"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "line_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_anything"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_new_line"
+        }
+      ]
+    },
+    "_sub_chord_meta": {
+      "type": "PATTERN",
+      "value": "[^{}]+"
+    },
+    "chord_meta": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_sub_chord_meta"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "chord_meta"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_sub_chord_info": {
+      "type": "PATTERN",
+      "value": "[\\[\\]]+"
+    },
+    "chord_info": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_sub_chord_info"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "chord_info"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "_input_output": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "print_function"
+        }
+      ]
+    },
+    "print_function": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "print"
+            },
+            {
+              "type": "STRING",
+              "value": "scream"
+            },
+            {
+              "type": "STRING",
+              "value": "shout"
+            },
+            {
+              "type": "STRING",
+              "value": "whisper"
+            },
+            {
+              "type": "STRING",
+              "value": "say"
+            },
+            {
+              "type": "STRING",
+              "value": "write"
+            },
+            {
+              "type": "STRING",
+              "value": "Print"
+            },
+            {
+              "type": "STRING",
+              "value": "Scream"
+            },
+            {
+              "type": "STRING",
+              "value": "Shout"
+            },
+            {
+              "type": "STRING",
+              "value": "Whisper"
+            },
+            {
+              "type": "STRING",
+              "value": "Say"
+            },
+            {
+              "type": "STRING",
+              "value": "Write"
+            },
+            {
+              "type": "STRING",
+              "value": "PRINT"
+            },
+            {
+              "type": "STRING",
+              "value": "SCREAM"
+            },
+            {
+              "type": "STRING",
+              "value": "SHOUT"
+            },
+            {
+              "type": "STRING",
+              "value": "WHISPER"
+            },
+            {
+              "type": "STRING",
+              "value": "SAY"
+            },
+            {
+              "type": "STRING",
+              "value": "WRITE"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
+    "expression": {
+      "type": "SYMBOL",
+      "name": "_type"
+    },
+    "_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_sub_string": {
+      "type": "PATTERN",
+      "value": "[^\"]+"
+    },
+    "string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_sub_string"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "_anything": {
+      "type": "PATTERN",
+      "value": "[^ \\t\\n\\r]"
+    },
+    "_new_line": {
+      "type": "PATTERN",
+      "value": "\\n"
     }
   },
   "extras": [

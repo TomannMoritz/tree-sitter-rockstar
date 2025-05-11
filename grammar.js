@@ -11,7 +11,14 @@ module.exports = grammar({
     name: "rockstar",
 
     rules: {
-        source_file: $ => repeat(choice($._input_output, $._comment_types)),
+        source_file: $ => repeat(
+            choice(
+                $._new_line,
+                $._line_end,
+                $._comment_types,
+                $._input_output,
+            )
+        ),
 
 
         // --------------------------------------------------
@@ -83,5 +90,17 @@ module.exports = grammar({
         // Special case
         _anything: $ => /[^ \t\n\r]/,
         _new_line: $ => /\n/,
+        _line_end: $ => choice(
+            " ",
+            $.punctuation,
+        ),
+
+        punctuation: $ => choice(
+            "?",
+            ".",
+            "!",
+            ";",
+            ",",
+        ),
     }
 });

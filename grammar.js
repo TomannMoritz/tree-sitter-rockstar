@@ -78,10 +78,40 @@ module.exports = grammar({
         // Datatypes
         _type: $ => choice($.string),
 
+        null: $ => choice(
+            "null", "nothing", "nowhere", "nobody", "gone",
+            "Null", "Nothing", "Nowhere", "Nobody", "Gone",
+            "NULL", "NOTHING", "NOWHERE", "NOBODY", "GONE"
+            ),
+
+        boolean: $ => choice(
+            "true", "yes", "ok", "right",
+            "True", "Yes", "Ok", "Right",
+            "TRUE", "YES", "OK", "RIGHT",
+            "false", "no", "wrong", "lies",
+            "False", "No", "Wrong", "Lies",
+            "FALSE", "NO", "WRONG", "LIES"
+        ),
+
+        number: $ => seq(
+            optional(choice("+", "-")),
+            choice(
+                /\d+/,
+                /\d*[.]\d+/,
+            )
+        ),
+
+
+        empty_string: $ => choice(
+            '""', 
+            "empty", "silent", "silence",
+            "Empty", "Silent", "Silence",
+            "EMPTY", "SILENT", "SILENCE",
+        ),
         _sub_string: $ => /[^"]+/,
         string: $ => seq(
             '"',
-            repeat(choice($._sub_string)),
+            repeat(choice($._sub_string, $.empty_string)),
             '"',
         ),
 

@@ -77,7 +77,7 @@ module.exports = grammar({
 
         // --------------------------------------------------
         // Datatypes
-        _type: $ => choice($.null, $.boolean, $.number, $.string),
+        _type: $ => choice($.null, $.boolean, $.number, $.empty_string, $.string),
 
         null: $ => choice(
             "null", "nothing", "nowhere", "nobody", "gone",
@@ -112,7 +112,7 @@ module.exports = grammar({
         _sub_string: $ => /[^"]+/,
         string: $ => seq(
             '"',
-            repeat(choice($._sub_string, $.empty_string)),
+            repeat(choice($._sub_string, '""')),
             '"',
         ),
 

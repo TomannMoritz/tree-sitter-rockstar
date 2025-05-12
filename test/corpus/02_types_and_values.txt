@@ -1,0 +1,349 @@
+==================
+Type: String
+==================
+
+Print "this is a string literal"
+Print "This string includes ""quotes"""
+Print "backslashes \don't \do \anything \special \r\n\t\w\s\0"
+
+Print "This string
+contains
+line
+breaks"
+
+Print "Стріляй!
+Скажи, чому боїшся ти
+Зробити цей останній крок?"
+
+Print "🎸✨🎆💔🌃🐍💘🌾🍾"
+Print empty
+Print silence
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (string)))
+    (print_function
+        (expression
+            (string)))
+    (print_function
+        (expression
+            (string)))
+
+    (print_function
+        (expression
+            (string)))
+
+    (print_function
+        (expression
+            (string)))
+
+
+    (print_function
+        (expression
+            (string)))
+
+    (print_function
+        (expression
+            (empty_string)))
+
+    (print_function
+        (expression
+            (empty_string)))
+)
+
+
+
+==================
+Type: Rock
+:skip
+==================
+
+The string is "Name"
+Rock it with 9 (append a TAB character)
+Rock it with "Instrument"
+Rock it with 10 (append a LF)
+Rock it with "Eddie", 9, "Guitar", 10
+Rock it with "Alex", 9, "Drums", 10
+Rock it with "Mike", 9, "Bass", 10
+Print it
+
+(prints:
+Name	Instrument
+Eddie	Guitar
+Alex	Drums
+Mike	Bass
+
+)
+
+---
+
+(source_file)
+
+
+
+==================
+Type: Number literals - 1
+==================
+
+Print 1 (prints: 1)
+Print 0.5 (prints: 0.5)
+Print +8 (prints: 8)
+Print -10 (prints: -10)
+Print -.4 (prints: -0.4)
+Print 1.000000000 (prints: 1)
+Print 1.2. (prints: 1.2)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (number)))
+    (comment)
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (comment)
+)
+
+
+
+==================
+Type: Number literals - 2
+==================
+
+Print   +79228162514264337593543950335
+(prints: 79228162514264337593543950335)
+Print    -79228162514264337593543950335
+(prints: -79228162514264337593543950335)
+
+Print   +0.0000000000000000000000000001
+(prints: 0.0000000000000000000000000001)
+Print     -.0000000000000000000000000001
+(prints: -0.0000000000000000000000000001)
+
+Print   +10000000000000.000000000000001
+(prints: 10000000000000.000000000000001)
+Print    -10000000000000.000000000000001
+(prints: -10000000000000.000000000000001)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+)
+
+
+
+==================
+Type: Number literals - 3
+==================
+
+Print   +1000000000000000.00000000000001
+(prints: 1000000000000000)
+Print    -1000000000000000.00000000000001
+(prints: -1000000000000000)
+
+Print   +79228162514264337593543950335.1
+(prints: 79228162514264337593543950335)
+Print    -79228162514264337593543950335.1
+(prints: -79228162514264337593543950335)
+
+Print +0.00000000000000000000000000001 (prints: 0)
+Print -0.00000000000000000000000000001 (prints: 0)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+
+    (print_function
+        (expression
+            (number)))
+    (comment)
+)
+
+
+
+==================
+Type: Boolean
+==================
+
+Print true (prints: true)
+Say OK (prints: true)
+Scream yes (prints: true)
+Shout right (prints: true)
+ 
+Print false (prints: false)
+Say no (prints: false)
+Shout wrong (prints: false)
+Scream lies (prints: false)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+
+
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+
+    (print_function
+        (expression
+            (boolean)))
+    (comment)
+)
+
+
+
+==================
+Type: Null
+==================
+
+Print null (prints: null)
+Say nothing (prints: null)
+Scream nowhere (prints: null)
+Shout nobody (prints: null)
+Say gone (prints: null)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (null)))
+    (comment)
+
+    (print_function
+        (expression
+            (null)))
+    (comment)
+
+    (print_function
+        (expression
+            (null)))
+    (comment)
+
+    (print_function
+        (expression
+            (null)))
+    (comment)
+
+    (print_function
+        (expression
+            (null)))
+    (comment)
+)
+

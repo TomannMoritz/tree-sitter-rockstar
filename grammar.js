@@ -34,7 +34,7 @@ module.exports = grammar({
 
         line_comment: $ => seq(
             "#",
-            $._anything,
+            /[^\n]+/,
             $._new_line
         ),
 
@@ -46,7 +46,7 @@ module.exports = grammar({
             "}"
         ),
 
-        _sub_chord_info: $ => /[\[\]]+/,
+        _sub_chord_info: $ => /[^\[\]]+/,
         chord_info: $ => seq(
             "[",
             repeat(choice($._sub_chord_info, $.chord_info)),
@@ -65,6 +65,7 @@ module.exports = grammar({
                 "Print", "Scream", "Shout", "Whisper", "Say", "Write",
                 "PRINT", "SCREAM", "SHOUT", "WHISPER", "SAY", "WRITE"
             ),
+            optional($.comment),
             $.expression,
         ),
 
@@ -76,7 +77,7 @@ module.exports = grammar({
 
         // --------------------------------------------------
         // Datatypes
-        _type: $ => choice($.string),
+        _type: $ => choice($.null, $.boolean, $.number, $.string),
 
         null: $ => choice(
             "null", "nothing", "nowhere", "nobody", "gone",

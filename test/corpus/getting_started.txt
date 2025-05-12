@@ -1,0 +1,317 @@
+==================
+Hello World
+==================
+
+print "Hello, World" (prints: Hello, World)
+
+---
+
+(source_file
+  (print_function
+        (expression
+            (string)))
+    (comment)
+    )
+
+
+
+==================
+Print
+==================
+
+Scream "Hello Cleveland!" (prints: Hello Cleveland!)
+Say "All I wanna know is..." (prints: All I wanna know is...)
+Shout "Are you ready to rock?" (prints: Are you ready to rock?)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (string)))
+    (comment)
+    (print_function
+        (expression
+            (string)))
+    (comment)
+    (print_function
+        (expression
+            (string)))
+    (comment)
+)
+
+
+
+==================
+Print without new line
+==================
+
+Write 1. Write 2; write 3!
+(writes: 123)
+
+Write "A dream "
+Print "of dolphins"
+(prints: A dream of dolphins)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (comment)
+    (print_function
+        (expression
+            (string)))
+    (print_function
+        (expression
+            (string)))
+    (comment)
+)
+
+
+
+==================
+Read Input (STDIN)
+:skip
+==================
+
+Listen to the value
+Until the value is nothing
+Shout the value
+Listen to the value
+
+---
+
+(source_file
+    (input_function
+        (variable))
+    (until)
+    (print_function
+        (varibale)
+        (input_function)
+        (variable))
+)
+
+
+
+==================
+String with punctuation
+==================
+
+scream "hey!"
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (string)))
+)
+
+
+
+==================
+Punctuation - End of command
+==================
+
+Say 1. Say 2? Say 3! Say 4; say 5...
+(prints: 1
+2
+3
+4
+5)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (punctuation)
+    (punctuation)
+    (comment)
+)
+
+
+
+==================
+Global Arguments
+:skip
+==================
+
+for arg in arguments
+print arg
+end
+
+For every shadow in the world
+Whisper the shadow
+Yeah
+
+---
+
+(source_file
+    (repeat)
+    (variable)
+    (print_function
+        (variable))
+    )
+
+
+
+==================
+Comments
+==================
+
+(This is a Rockstar comment)
+(Rockstar supports nested comments (like this (see?)))
+Shout (as loud as you can (like, REALLY loud!)) "nested comments are cool!"
+(prints: nested comments are cool!)
+
+Shout "Comments inside strings (like this (see?)) aren't comments"
+(prints: Comments inside strings (like this (see?)) aren't comments)
+
+---
+
+(source_file
+    (comment)
+    (comment
+        (comment
+            (comment)
+    ))
+    (print_function
+        (comment
+            (comment))
+        (expression
+            (string)))
+    (comment)
+    (print_function
+        (expression
+            (string)))
+    (comment
+        (comment
+            (comment)
+    ))
+)
+
+
+
+==================
+ChordPro Comments
+==================
+
+#!/bin/rockstar
+
+{title: The Rockstar Blues}
+{artist: Dylan Beattie}
+{tempo: 120bpm}
+
+{start_of_verse}
+[A] Say "it's one for the money"
+[A] Say "it's two for the show"
+[D] Say "three to get ready"
+[A] Say "now go go go"
+{end_of_verse}
+
+{start_of_chorus}
+[D] Say 5? [D] Say 6? [A] Say 7? [A] Say 8!
+[E] Say 9; [D] Say 10!
+[A] Say 11
+Say "and that's the Rockstar 12 bar blues"
+{end_of_chorus}
+
+---
+
+(source_file
+    (line_comment)
+    (chord_meta)
+    (chord_meta)
+    (chord_meta)
+    (chord_meta)
+    (chord_info)
+    (print_function
+        (expression
+            (string)))
+    (chord_info)
+    (print_function
+        (expression
+            (string)))
+    (chord_info)
+    (print_function
+        (expression
+            (string)))
+    (chord_info)
+    (print_function
+        (expression
+            (string)))
+    (chord_meta)
+
+    (chord_meta)
+    (chord_info)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (chord_info)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (chord_info)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (chord_info)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+
+    (chord_info)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+    (chord_info)
+    (print_function
+        (expression
+            (number)))
+    (punctuation)
+
+    (chord_info)
+    (print_function
+        (expression
+            (number)))
+
+    (print_function
+        (expression
+            (string)))
+    (chord_meta)
+)

@@ -1,0 +1,473 @@
+=========================
+Variables
+=========================
+
+x is 1. Print x (prints: 1)
+Y was 2. Print y (prints: 2)
+z is -1. Print z (prints: -1)
+The limit's 55. Print the limit. (prints: 55)
+
+Put 12 into a variable. Print a variable. (prints: 12)
+Let my variable be 34. Print my variable (prints: 34)
+
+Put nothing into the fire. Print the fire. (prints: null)
+Let the fire be silence. Print the fire. (prints: )
+
+---
+
+(source_file
+    (assignment
+        (simple_var)
+        (expression
+            (number))
+    )
+    (punctuation)
+    (print_function
+        (simple_var))
+    (comment)
+
+    (assignment
+        (simple_var)
+        (expression
+            (number))
+    )
+    (punctuation)
+    (print_function
+        (simple_var))
+    (comment)
+
+    (assignment
+        (simple_var)
+        (expression
+            (number))
+    )
+    (punctuation)
+    (print_function
+        (simple_var))
+    (comment)
+
+    (assignment
+        (common_var)
+        (expression
+            (number))
+    )
+    (punctuation)
+    (print_function
+        (common_var))
+    (punctuation)
+    (comment)
+
+    
+    (assignment
+        (expression
+            (number))
+        (common_var)
+    )
+    (punctuation)
+    (print_function
+        (common_var))
+    (punctuation)
+    (comment)
+
+    (assignment
+        (common_var)
+        (expression
+            (number))
+    )
+    (punctuation)
+    (print_function
+        (common_var))
+    (comment)
+
+
+    (assignment
+        (expression
+            (null))
+        (common_var)
+    )
+    (punctuation)
+    (print_function
+        (common_var))
+    (punctuation)
+    (comment)
+
+    (assignment
+        (common_var)
+        (expression
+            (empty_string))
+    )
+    (punctuation)
+    (print_function
+        (common_var))
+    (punctuation)
+    (comment)
+)
+
+
+
+=========================
+Variables - Assignment using is
+:skip
+=========================
+
+(Assignment to a literal number)
+Foo is 2
+Say foo (prints: 2)
+
+(Assignment to an expression beginning with a literal)
+Foo is 2 + 2
+Say foo (prints: 4)
+
+(Assignment to an expression beginning with a keyword)
+Foo is with 2
+Say foo (prints: 6)
+
+(Assignment to a poetic number that looks like a variable name)
+Bar is foo
+Say bar (prints: 3)
+
+(Assignment to a poetic number that looks like an expression)
+Bar is foo with bar
+Say bar (prints: 343)
+
+---
+
+(source_file
+    (comment)
+    (assignment
+        (simple_var)
+        (expression
+            (number))
+    )
+    (comment)
+
+    (comment)
+    (assignment
+        (simple_var)
+        (expression
+            (number))
+    )
+    (comment)
+)
+
+
+
+=========================
+Variable names - Simple Variables
+=========================
+
+x is 2
+pi is 3.14159
+greeting is "hello world"
+
+say x (prints: 2)
+say pi (prints: 3.14159)
+say greeting (prints: hello world)
+
+---
+
+(source_file
+    (assignment
+        (simple_var)
+        (expression
+            (number))
+    )
+
+    (assignment
+        (simple_var)
+        (expression
+            (number))
+    )
+
+    (assignment
+        (simple_var)
+        (expression
+            (string))
+    )
+
+    (print_function
+        (simple_var))
+    (comment)
+
+    (print_function
+        (simple_var))
+    (comment)
+
+    (print_function
+        (simple_var))
+    (comment)
+
+)
+
+
+
+=========================
+Variable names - Common Variables - 1.1
+=========================
+
+The greeting is "hello world"
+SHOUT THE GREETING (prints: hello world)
+
+A number is 12
+Our flag is "death"
+print a number (prints: 12)
+print our flag (prints: death)
+
+
+---
+
+(source_file
+    (assignment
+        (common_var)
+        (expression
+            (string)))
+    (print_function
+        (common_var))
+    (comment)
+
+    (assignment
+        (common_var)
+        (expression
+            (number)))
+    (assignment
+        (common_var)
+        (expression
+            (string)))
+    (print_function
+        (common_var))
+    (comment)
+    (print_function
+        (common_var))
+    (comment)
+)
+
+
+
+=========================
+Variable names - Common Variables - 1.2
+=========================
+
+The variable is 1
+my variable is 2
+Your variable is 3
+Say the variable (prints: 1)
+Say my variable (prints: 2)
+Say your variable (prints: 3)
+
+---
+
+(source_file
+    (assignment
+        (common_var)
+        (expression
+            (number))
+    )
+
+    (assignment
+        (common_var)
+        (expression
+            (number))
+    )
+
+    (assignment
+        (common_var)
+        (expression
+            (number))
+    )
+
+    (print_function
+        (common_var)
+    )
+
+    (comment)
+    (print_function
+        (common_var)
+    )
+
+    (comment)
+    (print_function
+        (common_var)
+    )
+    (comment)
+)
+
+
+=========================
+Variable names - Common Variables - 1.3
+=========================
+
+The silence is nothing
+Scream the silence (prints: null)
+Your scream is "aargh!"
+Scream your scream (prints: aargh!)
+
+---
+
+(source_file
+    (assignment
+        (common_var)
+        (expression
+            (null))
+    )
+
+    (print_function
+        (common_var)
+    )
+    (comment)
+
+    (assignment
+        (common_var)
+        (expression
+            (string))
+    )
+
+    (print_function
+        (common_var)
+    )
+    (comment)
+)
+
+
+=========================
+Pronouns
+:skip
+=========================
+
+The number is 1. Shout it (prints: 1)
+It is 2. Shout it (prints: 2)
+The string is "hello". Print it (prints: hello)
+It is "world". Print it (prints: world)
+Print the number (prints: 2)
+Print the string (prints: world)
+
+Doctor Feelgood is right. Scream Doctor Feelgood (prints: true)
+He is wrong. Scream Doctor Feelgood (prints: false)
+
+The Darkness are 1. Shout the darkness (prints: 1)
+They are 2. Shout them (prints: 2)
+
+Alpha is 1
+Beta is 2
+If alpha is 1 print it (prints: 1)
+
+Gamma is 3
+Delta is 4
+While gamma ain't nothing, write it. Knock it down, yeah. (writes: 321)
+
+---
+
+(source_file)
+
+
+
+=========================
+Poetic Literals - 1
+:skip
+=========================
+
+Shout like a big bad monster (prints: 1337)
+Scream like a banshee (prints: 17)
+
+Papa was like a rolling stone. Shout Papa. (prints: 175)
+
+the fire is like a shadow, the stars are like the rain
+Shout the fire (prints: 16353434)
+
+My dreams are so dark
+Scream my dreams (prints: 4)
+
+---
+
+(source_file)
+
+
+
+=========================
+Poetic Literals - 1
+:skip
+=========================
+
+Tommy's like a panther, he ain't talkin' 'bout love. Shout Tommy. (prints: 1724644)
+He's like a wild animal.
+Shout Tommy (prints: 146)
+
+My heart was like ice... a life unfulfilled, wakin' everybody up, taking booze and pills.
+Say it. (prints: 3.1415926535)
+
+e is like my… darkest nightmarish longings, my cravings, a symphony of suff'ring that lasts life-long.
+Say it. (prints: 2.718281828459)
+
+Carrie's like a wolf. Danny's like a child. Print Carrie. (prints: 14)
+Print Danny. (prints: 15)
+
+---
+
+(source_file)
+
+
+
+=========================
+Poetic Strings
+:skip
+=========================
+
+Tommy says we've got to hold on to what we've got.
+Gina says it doesn't make a difference if we make it or not.
+
+Print Tommy (prints: we've got to hold on to what we've got.)
+Print Gina (prints: it doesn't make a difference if we make it or not.)
+
+A variable says, I start with a comma.
+Print a variable(prints: , I start with a comma.)
+
+A variable says: I start with punctuation.
+Print a variable (prints: : I start with punctuation.)
+
+My string said it had "quotes", 'quotes', українська, עִבְרִית, 🎸✨🎆	and	tabs
+Print my string (prints: it had "quotes", 'quotes', українська, עִבְרִית, 🎸✨🎆	and	tabs)
+
+---
+
+(source_file)
+
+
+
+=========================
+Ninja Strings
+:skip
+=========================
+
+A string is "A"
+Rock it with 67
+Rock it 47, 68
+Rock it like raging thunder
+
+Shout it (prints: AC/DC)
+
+---
+
+(source_file)
+
+
+
+=========================
+Ninja Strings - 2 (holds)
+:skip
+=========================
+My dreams hold diamond nightmares
+Salvation is the sea
+My screams hold silent echoes
+Your love is meaningless to me
+
+Rock my dreams like a razorblade smile
+Rock my dreams with your love, your love
+Rock my screams like a heartbroken missile
+Rock my screams with your love, your love.
+
+My dreams are with my screams
+Rock my dreams with salvation
+Whisper my dreams
+
+---
+
+(source_file)

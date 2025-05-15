@@ -17,6 +17,7 @@ module.exports = grammar({
                 $._line_end,
                 $._comment_types,
                 $._input_output,
+                $._definition,
             )
         ),
 
@@ -66,8 +67,63 @@ module.exports = grammar({
                 "PRINT", "SCREAM", "SHOUT", "WHISPER", "SAY", "WRITE"
             ),
             optional($.comment),
-            $.expression,
+            choice($.expression, $._variable),
         ),
+
+
+        // --------------------------------------------------
+        // Definition
+        _definition: $ => $.assignment,
+
+
+        // --------------------------------------------------
+        // Assignment
+        assignment: $ => choice($._is_assignment, $._put_assignment, $._let_assignment),
+
+        _is_assignment: $ => seq(
+            $._variable,
+            choice(
+                "is", "are", "am", "was", "were", "'s", "'re",
+                "Is", "Are", "Am", "Was", "Were",
+                "IS", "ARE", "AM", "WAS", "WERE",
+            ),
+            $.expression
+        ),
+
+        _put_assignment: $ => seq(
+            choice("put", "Put", "PUT"),
+            $.expression,
+            choice("into", "Into", "INTO"),
+            $._variable
+        ),
+
+        _let_assignment: $ => seq(
+            choice("let", "Let", "LET"),
+            $._variable,
+            choice("be", "Be", "BE"),
+            $.expression
+        ),
+
+
+        // --------------------------------------------------
+        // Variable
+        _variable: $ => choice($.simple_var, $.common_var, $.proper_var),
+
+        // only letters - TODO: not reserved keywords
+        simple_var: $ => /[a-zA-Z]+/,
+
+        // keyword + identifier
+        common_var: $ => seq(
+            choice(
+                "a ", "an ", "the ", "my ", "your ", "our ",
+                "A ", "An ", "The ", "My ", "Your ", "Our ",
+                "A ", "AN ", "THE ", "MY ", "YOUR ", "OUR "
+            ),
+            /[a-zA-Z]+/
+        ),
+
+        // Upper case variables - TODO CHEKC THIS
+        proper_var: $ => /[A-Z]+[a-zA-Z]+/,
 
 
         // --------------------------------------------------

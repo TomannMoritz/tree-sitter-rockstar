@@ -106,7 +106,7 @@ Let the fire be silence. Print the fire. (prints: )
 
 
 =========================
-Variables - Assignment using is
+Variables - Assignment using is - 1.1
 :skip
 =========================
 
@@ -122,6 +122,34 @@ Say foo (prints: 4)
 Foo is with 2
 Say foo (prints: 6)
 
+---
+
+TODO: Arithmetic
+
+(source_file
+    (comment)
+    (assignment
+        (simple_var)
+        (expression
+            (number)
+        )
+    )
+    (print_function
+        (simple_var)
+    )
+    (comment)
+
+    (comment)
+
+    >TODO<
+)
+
+
+
+=========================
+Variables - Assignment using is - 1.2
+=========================
+
 (Assignment to a poetic number that looks like a variable name)
 Bar is foo
 Say bar (prints: 3)
@@ -136,16 +164,20 @@ Say bar (prints: 343)
     (comment)
     (assignment
         (simple_var)
-        (expression
-            (number))
+        (poetic_number)
+    )
+    (print_function
+        (simple_var)
     )
     (comment)
 
     (comment)
     (assignment
         (simple_var)
-        (expression
-            (number))
+        (poetic_number)
+    )
+    (print_function
+        (simple_var)
     )
     (comment)
 )
@@ -329,8 +361,7 @@ Scream your scream (prints: aargh!)
 
 
 =========================
-Pronouns
-:skip
+Pronouns - 1.1
 =========================
 
 The number is 1. Shout it (prints: 1)
@@ -340,18 +371,195 @@ It is "world". Print it (prints: world)
 Print the number (prints: 2)
 Print the string (prints: world)
 
+---
+
+(source_file
+    (assignment
+        (common_var)
+        (expression
+            (number)
+        )
+    )
+    (punctuation)
+    (print_function
+        (pronoun)
+    )
+    (comment)
+
+    (assignment
+        (pronoun)
+        (expression
+            (number)
+        )
+    )
+    (punctuation)
+    (print_function
+        (pronoun)
+    )
+    (comment)
+
+
+    (assignment
+        (common_var)
+        (expression
+            (string)
+        )
+    )
+    (punctuation)
+    (print_function
+        (pronoun)
+    )
+    (comment)
+
+    (assignment
+        (pronoun)
+        (expression
+            (string)
+        )
+    )
+    (punctuation)
+    (print_function
+        (pronoun)
+    )
+    (comment)
+
+
+    (print_function
+        (common_var)
+    )
+    (comment)
+    (print_function
+        (common_var)
+    )
+    (comment)
+)
+
+
+
+=========================
+Pronouns - 1.2
+:skip
+=========================
 Doctor Feelgood is right. Scream Doctor Feelgood (prints: true)
 He is wrong. Scream Doctor Feelgood (prints: false)
 
+---
+
+TODO: proper_variables
+
+(source_file
+    (assignment
+        (proper_variable)
+        (boolean)
+    )
+    (punctuation)
+
+    (print_function
+        (proper_variable)
+    )
+    (comment)
+
+    (assignment
+        (pronoun)
+        (boolean)
+    )
+    (punctuation)
+
+    (print_function
+        (proper_variable)
+    )
+    (comment)
+)
+
+
+=========================
+Pronouns - 1.3
+:skip
+=========================
 The Darkness are 1. Shout the darkness (prints: 1)
 They are 2. Shout them (prints: 2)
 
+---
+
+TODO: proper_variables
+
+(source_file)
+
+
+
+=========================
+Pronouns - 1.4
+=========================
+
 Alpha is 1
 Beta is 2
+
+---
+
+(source_file
+    (assignment
+        (simple_var)
+        (expression
+            (number)
+        )
+    )
+
+    (assignment
+        (simple_var)
+        (expression
+            (number)
+        )
+    )
+)
+
+
+
+=========================
+Pronouns - 1.5
+:skip
+=========================
+
+TODO: Conditions
+
 If alpha is 1 print it (prints: 1)
+
+---
+
+(source_file)
+
+
+
+=========================
+Pronouns - 1.6
+=========================
 
 Gamma is 3
 Delta is 4
+
+---
+
+(source_file
+    (assignment
+        (simple_var)
+        (expression
+            (number)
+        )
+    )
+
+    (assignment
+        (simple_var)
+        (expression
+            (number)
+        )
+    )
+)
+
+
+
+=========================
+Pronouns - 1.7
+:skip
+=========================
 While gamma ain't nothing, write it. Knock it down, yeah. (writes: 321)
 
 ---
@@ -361,14 +569,54 @@ While gamma ain't nothing, write it. Knock it down, yeah. (writes: 321)
 
 
 =========================
-Poetic Literals - 1
-:skip
+Poetic Literals - 1.1
 =========================
 
 Shout like a big bad monster (prints: 1337)
 Scream like a banshee (prints: 17)
 
 Papa was like a rolling stone. Shout Papa. (prints: 175)
+
+---
+
+(source_file
+    (print_function
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (comment)
+
+    (print_function
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (comment)
+
+    (assignment
+        (simple_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (punctuation)
+
+    (print_function
+        (simple_var)
+    )
+    (punctuation)
+    (comment)
+)
+
+
+
+=========================
+Poetic Literals - 1.2
+=========================
 
 the fire is like a shadow, the stars are like the rain
 Shout the fire (prints: 16353434)
@@ -378,23 +626,86 @@ Scream my dreams (prints: 4)
 
 ---
 
-(source_file)
+(source_file
+    (assignment
+        (common_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (print_function
+        (common_var)
+    )
+    (comment)
+
+    (assignment
+        (common_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+
+    (print_function
+        (common_var)
+    )
+    (comment)
+)
 
 
 
 =========================
-Poetic Literals - 1
-:skip
+Poetic Literals - 2.1
 =========================
 
 Tommy's like a panther, he ain't talkin' 'bout love. Shout Tommy. (prints: 1724644)
 He's like a wild animal.
 Shout Tommy (prints: 146)
 
+---
+
+(source_file
+    (assignment
+        (simple_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (punctuation)
+
+    (print_function
+        (simple_var)
+    )
+    (punctuation)
+    (comment)
+
+    (assignment
+        (pronoun)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (punctuation)
+
+    (print_function
+        (simple_var)
+    )
+    (comment)
+)
+
+
+
+=========================
+Poetic Literals - 2.2
+=========================
+
 My heart was like ice... a life unfulfilled, wakin' everybody up, taking booze and pills.
 Say it. (prints: 3.1415926535)
 
-e is like my… darkest nightmarish longings, my cravings, a symphony of suff'ring that lasts life-long.
+e is like my... darkest nightmarish longings, my cravings, a symphony of suff'ring that lasts life-long.
 Say it. (prints: 2.718281828459)
 
 Carrie's like a wolf. Danny's like a child. Print Carrie. (prints: 14)
@@ -402,13 +713,70 @@ Print Danny. (prints: 15)
 
 ---
 
-(source_file)
+(source_file
+    (assignment
+        (common_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (punctuation)
+
+    (print_function
+        (pronoun)
+    )
+    (punctuation)
+    (comment)
+
+    (assignment
+        (simple_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (punctuation)
+
+    (print_function
+        (pronoun)
+    )
+    (punctuation)
+    (comment)
+
+    (assignment
+        (simple_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (punctuation)
+    (assignment
+        (simple_var)
+        (expression
+            (poetic_indicator)
+            (poetic_number)
+        )
+    )
+    (punctuation)
+    (print_function
+        (simple_var)
+    )
+    (punctuation)
+    (comment)
+
+    (print_function
+        (simple_var)
+    )
+    (punctuation)
+    (comment)
+)
 
 
 
 =========================
-Poetic Strings
-:skip
+Poetic Strings - 1.1
 =========================
 
 Tommy says we've got to hold on to what we've got.
@@ -417,20 +785,91 @@ Gina says it doesn't make a difference if we make it or not.
 Print Tommy (prints: we've got to hold on to what we've got.)
 Print Gina (prints: it doesn't make a difference if we make it or not.)
 
+---
+
+(source_file
+    (assignment
+        (simple_var)
+        (poetic_string_indicator)
+        (poetic_string)
+    )
+
+    (assignment
+        (simple_var)
+        (poetic_string_indicator)
+        (poetic_string)
+    )
+
+    (print_function
+        (simple_var)
+    )
+    (comment)
+
+    (print_function
+        (simple_var)
+    )
+    (comment)
+)
+
+
+
+=========================
+Poetic Strings - 1.2
+=========================
+
 A variable says, I start with a comma.
 Print a variable(prints: , I start with a comma.)
 
 A variable says: I start with punctuation.
 Print a variable (prints: : I start with punctuation.)
 
+---
+
+(source_file
+    (assignment
+        (common_var)
+        (poetic_string_indicator)
+        (poetic_string)
+    )
+    (print_function
+        (common_var)
+    )
+    (comment)
+
+    (assignment
+        (common_var)
+        (poetic_string_indicator)
+        (poetic_string)
+    )
+    (print_function
+        (common_var)
+    )
+    (comment)
+)
+
+
+
+=========================
+Poetic Strings - 1.3
+=========================
+
 My string said it had "quotes", 'quotes', українська, עִבְרִית, 🎸✨🎆	and	tabs
 Print my string (prints: it had "quotes", 'quotes', українська, עִבְרִית, 🎸✨🎆	and	tabs)
 
 ---
 
-(source_file)
+(source_file
+    (assignment
+        (common_var)
+        (poetic_string_indicator)
+        (poetic_string)
+    )
 
-
+    (print_function
+        (common_var)
+    )
+    (comment)
+)
 
 =========================
 Ninja Strings
@@ -446,23 +885,78 @@ Shout it (prints: AC/DC)
 
 ---
 
-(source_file)
+(source_file
+    (assignment
+        (common_var)
+        (expression
+            (string)
+        )
+    )
+TODO: Arithmetic
+)
 
 
 
 =========================
-Ninja Strings - 2 (holds)
-:skip
+Ninja Strings - 2.1 (holds)
 =========================
 My dreams hold diamond nightmares
 Salvation is the sea
 My screams hold silent echoes
 Your love is meaningless to me
 
+
+---
+
+(source_file
+    (ninja
+        (common_var)
+        (ninja_indicator_hold)
+        (poetic_number)
+    )
+
+    (assignment
+        (simple_var)
+        (poetic_number)
+    )
+
+    (ninja
+        (common_var)
+        (ninja_indicator_hold)
+        (poetic_number)
+    )
+
+    (assignment
+        (common_var)
+        (poetic_number)
+    )
+)
+
+
+
+=========================
+Ninja Strings - 2.2 (holds)
+:skip
+=========================
+
 Rock my dreams like a razorblade smile
 Rock my dreams with your love, your love
 Rock my screams like a heartbroken missile
 Rock my screams with your love, your love.
+
+---
+
+TODO: Arithmetic
+
+(source_file
+)
+
+
+
+=========================
+Ninja Strings - 2.2 (holds)
+:skip
+=========================
 
 My dreams are with my screams
 Rock my dreams with salvation
@@ -470,4 +964,8 @@ Whisper my dreams
 
 ---
 
-(source_file)
+TODO: Arithmetic
+
+(source_file
+)
+

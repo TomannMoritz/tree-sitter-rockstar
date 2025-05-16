@@ -67,27 +67,27 @@ module.exports = grammar({
                 "PRINT", "SCREAM", "SHOUT", "WHISPER", "SAY", "WRITE"
             ),
             optional($.comment),
-            choice($.expression, $._variable),
+            choice($.pronoun, $.expression, $._variable),
         ),
 
 
         // --------------------------------------------------
         // Definition
-        _definition: $ => $.assignment,
+        _definition: $ => choice($.assignment, $.ninja),
 
 
         // --------------------------------------------------
         // Assignment
-        assignment: $ => choice($._is_assignment, $._put_assignment, $._let_assignment),
+        assignment: $ => choice($._is_assignment, $._put_assignment, $._let_assignment, $._poetic_assignment),
 
         _is_assignment: $ => seq(
-            $._variable,
+            choice($._variable, $.pronoun),
             choice(
                 "is", "are", "am", "was", "were", "'s", "'re",
                 "Is", "Are", "Am", "Was", "Were",
                 "IS", "ARE", "AM", "WAS", "WERE",
             ),
-            $.expression
+            choice($.expression, $.poetic_number),
         ),
 
         _put_assignment: $ => seq(
@@ -102,6 +102,12 @@ module.exports = grammar({
             $._variable,
             choice("be", "Be", "BE"),
             $.expression
+        ),
+
+        _poetic_assignment: $ => seq(
+            $._variable,
+            $.poetic_string_indicator,
+            $.poetic_string,
         ),
 
 
@@ -127,13 +133,92 @@ module.exports = grammar({
 
 
         // --------------------------------------------------
+        // Pronoun
+        pronoun: $ => choice(
+            "it", "he", "she", "him", "her", "they", "them", "ze", "hir", "zie", "zir", "xe", "xem", "ve", "ver",
+            "It", "He", "She", "Him", "Her", "They", "Them", "Ze", "Hir", "Zie", "Zir", "Xe", "Xem", "Ve", "Ver",
+            "IT", "HE", "SHE", "HIM", "HER", "THEY", "THEM", "ZE", "HIR", "ZIE", "ZIR", "XE", "XEM", "VE", "VER",
+        ),
+
+
+        // --------------------------------------------------
         // Expressions
-        expression: $ => $._type,
+        expression: $ => choice($._type),
+
+
+        // --------------------------------------------------
+        // Poetic number
+        _poetic_literal: $ => seq(
+            $.poetic_indicator,
+            $.poetic_number,
+        ),
+
+        poetic_indicator: $ => choice(
+            "like", "so",
+            "Like", "So",
+            "LIKE", "SO",
+        ),
+
+        poetic_number: $ => seq(
+            /[a-zA-Z]+/,
+            /(([ \t,'-]+|\.\.+)+[a-zA-Z]+)*/,
+
+            // TODO: different codepoints
+        ),
+
+
+        // --------------------------------------------------
+        // Poetic string
+        poetic_string_indicator: $ => choice(
+            "says", "said",
+            "Says", "Said",
+            "SAYS", "SAID",
+        ),
+
+        poetic_string: $ => seq(
+            /[^\n]+/,
+            /\n/,
+        ),
+
+
+        // --------------------------------------------------
+        // Ninja string
+        ninja: $ => seq(
+            choice($._ninja_string, $._ninja_hold),
+            "\n",
+        ),
+
+        _ninja_string: $ => seq(
+            $.ninja_indicator_rock,
+            $.pronoun,
+            repeat1(seq(
+                $.ninja_string,
+                optional(",")
+            )),
+        ),
+
+        ninja_indicator_rock: $ => choice("rock", "Rock", "ROCK"),
+
+        ninja_string: $ => $._type,
+
+        // --------------------------------------------------
+        // Ninja string - hold
+        _ninja_hold: $ => seq(
+            $._variable,
+            $.ninja_indicator_hold,
+            $.poetic_number,
+        ),
+
+        ninja_indicator_hold: $ => choice(
+            "hold", "holds",
+            "Hold", "Holds",
+            "HOLD", "HOLDS",
+        ),
 
 
         // --------------------------------------------------
         // Datatypes
-        _type: $ => choice($.null, $.boolean, $.number, $.empty_string, $.string),
+        _type: $ => choice($.null, $.boolean, $.number, $.empty_string, $.string, $._poetic_literal),
 
         null: $ => choice(
             "null", "nothing", "nowhere", "nobody", "gone",
